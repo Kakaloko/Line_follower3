@@ -30,13 +30,13 @@ void engine_set_speed(Engine engine, float speed)
 {
 	if (speed < 0)
 	{
-		gpio_put(engine.dir1, 0);
-		gpio_put(engine.dir2, 1);
+		gpio_put(engine.dir1, 1);
+		gpio_put(engine.dir2, 0);
 	}
 	else if (speed > 0)
 	{
-		gpio_put(engine.dir1, 1);
-		gpio_put(engine.dir2, 0);
+		gpio_put(engine.dir1, 0);
+		gpio_put(engine.dir2, 1);
 	}
 	else
 	{

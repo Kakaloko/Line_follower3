@@ -11,12 +11,12 @@
 #define M 11
 
 
-#define Right_forward 28
-#define Right_backward 27
-#define Right_speed 26
-#define Left_foward 25
-#define Left_backward 24
-#define Left_speed 23
+#define Right_forward 20
+#define Right_backward 19
+#define Right_speed 21
+#define Left_foward 18
+#define Left_backward 17
+#define Left_speed 22
 
 void pico_sensors_init();
 
@@ -28,17 +28,20 @@ int main(void)
     pico_sensors_init();
     Robot robot;
     robot_init_engines(&robot, Left_foward, Left_backward, Left_speed, Right_forward, Right_backward, Right_speed);
-    int proportional = 0;   
-    int error = 0 ;
-
+   
 
     while (1)
     {
-        robot_set_speed(&robot, 1)
-        if(!gpio_get(M))
-        {
-            err
-        }
+        robot_set_speed(&robot, 1);
+        robot_set_turn(&robot,1);
+        sleep_ms(2000);
+        robot_set_speed(&robot, 0.4);
+        robot_set_turn(&robot,0.2);
+        sleep_ms(1000);
+        robot_set_turn(&robot,0);
+        sleep_ms(400);
+        robot_set_turn(&robot,-0.5);
+        sleep_ms(4000);
     }
     
 }
