@@ -46,7 +46,7 @@ pico_enable_stdio_usb(Line_follower 1)
 
 # Add the standard library to the build
 target_link_libraries(Line_follower
-        pico_stdlib hardware_pwm)
+        pico_stdlib hardware_pwm hardware_gpio)
 
 # Add the standard include files to the build
 target_include_directories(Line_follower PRIVATE
