@@ -11,7 +11,7 @@ void pico_button_init(void (*func)()){
     gpio_set_dir(BUTTON,false);  
     gpio_pull_up(BUTTON);
 
-    gpio_set_irq_enabled_with_callback(BUTTON, (1u << 1), true, &func);
+    gpio_set_irq_enabled_with_callback(BUTTON, (1u << 1), true, func);
 }
 
 

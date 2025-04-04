@@ -9,7 +9,6 @@
 #define RR 13
 
 
-bool on = true;
 
 void pico_button_init(void (*func)());
 

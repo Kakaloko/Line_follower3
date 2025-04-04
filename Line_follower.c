@@ -14,6 +14,7 @@
 #define Left_speed 22
 
 
+bool on = false;
 
 void pico_start_stop();
 
@@ -24,7 +25,7 @@ int main(void)
     pico_sensor_init();
     Robot robot;
     robot_init_engines(&robot, Left_foward, Left_backward, Left_speed, Right_forward, Right_backward, Right_speed);
-    bool on = false;
+    
 
     
     
@@ -35,12 +36,10 @@ int main(void)
         if(on)
         {
         robot_set_speed(&robot, 1);
-        robot_set_turn(&robot,1);
-        sleep_ms(2000);
         }
         else
         {
-            robot_set_speed(&robot, 0);
+        robot_set_speed(&robot, 0);
         }
     }
     
