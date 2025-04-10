@@ -1,3 +1,5 @@
+
+
 # Generated Cmake Pico project file
 
 cmake_minimum_required(VERSION 3.13)
@@ -23,7 +25,7 @@ if (EXISTS ${picoVscode})
     include(${picoVscode})
 endif()
 # ====================================================================================
-set(PICO_BOARD pico CACHE STRING "Board type")
+set(PICO_BOARD pico_w CACHE STRING "Board type")
 
 # Pull in Raspberry Pi Pico SDK (must be before project)
 include(pico_sdk_import.cmake)
@@ -36,7 +38,6 @@ pico_sdk_init()
 # Add executable. Default name is the project name, version 0.1
 
 add_executable(Line_follower Line_follower.c engine.c robot.c sensor.c)
-
 pico_set_program_name(Line_follower "Line_follower")
 pico_set_program_version(Line_follower "0.1")
 
@@ -52,6 +53,11 @@ target_link_libraries(Line_follower
 target_include_directories(Line_follower PRIVATE
         ${CMAKE_CURRENT_LIST_DIR}
 )
+
+# Add any user requested libraries
+target_link_libraries(Line_follower 
+        pico_cyw43_arch_lwip_poll 
+        )
 
 pico_add_extra_outputs(Line_follower)
 
